@@ -1,0 +1,10 @@
+import { it } from '@effect/vitest';
+import { Effect } from 'effect';
+import { expect } from 'vitest';
+import { greeting } from './app';
+
+it.effect('produces a greeting', () =>
+  Effect.gen(function* () {
+    expect(yield* greeting()).toBe('Hello from <%= projectName %>!');
+  }),
+);

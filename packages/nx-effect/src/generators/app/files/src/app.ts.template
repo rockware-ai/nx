@@ -1,0 +1,14 @@
+import { Console, Effect } from 'effect';
+
+/** Builds the greeting message. Pure and easy to unit test. */
+export const greeting = (): Effect.Effect<string> =>
+  Effect.succeed('Hello from <%= projectName %>!');
+
+/**
+ * The application program. Compose your `Effect`s here; `main.ts` runs it via
+ * `NodeRuntime.runMain`.
+ */
+export const program = Effect.gen(function* () {
+  const message = yield* greeting();
+  yield* Console.log(message);
+});

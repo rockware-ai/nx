@@ -1,0 +1,17 @@
+# <%= projectName %>
+
+An [Effect](https://effect.website) library generated with `@rafarochas91/nx-effect`.
+
+## Building
+
+```sh
+nx build <%= projectName %>
+```
+
+## Testing
+
+Tests run with [Vitest](https://vitest.dev) via [`@effect/vitest`](https://effect.website/docs/testing):
+
+```sh
+nx test <%= projectName %>
+```

@@ -1,0 +1,6 @@
+import { NodeRuntime } from '@effect/platform-node';
+import { program } from './app.js';
+
+// Entrypoint: NodeRuntime.runMain wires up signal handling, error reporting
+// and a graceful shutdown around the program.
+NodeRuntime.runMain(program);

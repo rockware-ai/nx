@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "NxEffectLibrary",
+  "title": "Create an Effect library",
+  "description": "Generates a TypeScript library pre-configured for Effect, with Vitest (via @effect/vitest) and a sample service + layer.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Library name.",
+      "$default": { "$source": "argv", "index": 0 },
+      "x-prompt": "What name would you like to use for the library?",
+      "pattern": "^[a-zA-Z][^:]*$"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the library is placed, relative to the workspace root."
+    },
+    "tags": {
+      "type": "string",
+      "description": "Comma-separated tags applied to the project (used for linting constraints)."
+    },
+    "platform": {
+      "type": "boolean",
+      "description": "Install and use @effect/platform packages.",
+      "default": false
+    },
+    "skipFormat": {
+      "type": "boolean",
+      "description": "Skip formatting files after generation.",
+      "default": false
+    }
+  },
+  "required": ["name"]
+}

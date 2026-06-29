@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "NxEffectService",
+  "title": "Generate an Effect service",
+  "description": "Adds an Effect Context.Tag service with a live Layer into an existing project.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Service name (e.g. UserRepository).",
+      "$default": { "$source": "argv", "index": 0 },
+      "x-prompt": "What name would you like to use for the service?"
+    },
+    "project": {
+      "type": "string",
+      "description": "The project where the service is created.",
+      "$default": { "$source": "projectName" },
+      "x-prompt": "Which project should the service be added to?"
+    },
+    "directory": {
+      "type": "string",
+      "description": "Directory under the project's source root for the service file.",
+      "default": "lib"
+    },
+    "skipFormat": {
+      "type": "boolean",
+      "description": "Skip formatting files after generation.",
+      "default": false
+    }
+  },
+  "required": ["name", "project"]
+}

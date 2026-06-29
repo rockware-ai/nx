@@ -1,0 +1,23 @@
+import { Context, Effect, Layer } from 'effect';
+
+/**
+ * <%= className %> service definition.
+ *
+ * Use the `Context.Tag` as both the identifier and the interface type. Provide
+ * the `<%= className %>Live` layer to satisfy the dependency at the edge of your
+ * program.
+ */
+export class <%= className %> extends Context.Tag('<%= serviceTag %>')<
+  <%= className %>,
+  {
+    // TODO: declare the methods this service exposes.
+    readonly ping: () => Effect.Effect<string>;
+  }
+>() {}
+
+export const <%= className %>Live = Layer.succeed(
+  <%= className %>,
+  <%= className %>.of({
+    ping: () => Effect.succeed('pong'),
+  }),
+);

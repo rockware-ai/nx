@@ -1,0 +1,26 @@
+import { Context, Effect, Layer } from 'effect';
+
+/**
+ * A small example Effect service for the <%= projectName %> library.
+ *
+ * Replace this with your own domain. The shape demonstrates the recommended
+ * pattern: a `Context.Tag` for the service interface, a `Layer` providing a
+ * live implementation, and accessor functions returning `Effect`s.
+ */
+export class <%= className %> extends Context.Tag('<%= projectName %>/<%= className %>')<
+  <%= className %>,
+  {
+    readonly greet: (name: string) => Effect.Effect<string>;
+  }
+>() {}
+
+export const <%= className %>Live = Layer.succeed(
+  <%= className %>,
+  <%= className %>.of({
+    greet: (name: string) => Effect.succeed(`Hello, ${name}!`),
+  }),
+);
+
+/** Accessor: greet using the service from the current context. */
+export const greet = (name: string): Effect.Effect<string, never, <%= className %>> =>
+  Effect.flatMap(<%= className %>, (service) => service.greet(name));

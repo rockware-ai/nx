@@ -1,0 +1,40 @@
+{
+  "name": "@rafarochas91/nx-effect",
+  "version": "0.0.1",
+  "description": "Nx plugin for Effect — generators for Effect libraries, services, layers and runnable applications.",
+  "keywords": [
+    "nx",
+    "nx-plugin",
+    "@nx/plugin",
+    "effect",
+    "effect-ts",
+    "typescript",
+    "monorepo",
+    "generator"
+  ],
+  "license": "MIT",
+  "author": "Rafa Rocha",
+  "homepage": "https://github.com/rafarochas91/nx-plugins/tree/main/packages/nx-effect",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafarochas91/nx-plugins.git",
+    "directory": "packages/nx-effect"
+  },
+  "bugs": {
+    "url": "https://github.com/rafarochas91/nx-plugins/issues"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@nx/devkit": "^23.0.0",
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "nx": ">=21.0.0"
+  },
+  "generators": "./generators.json"
+}

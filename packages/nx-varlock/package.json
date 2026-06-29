@@ -1,0 +1,43 @@
+{
+  "name": "@rafarochas91/nx-varlock",
+  "version": "0.0.1",
+  "description": "Nx plugin for Varlock — validate and inject environment variables, scan for leaked secrets, and infer targets from .env.schema.",
+  "keywords": [
+    "nx",
+    "nx-plugin",
+    "@nx/plugin",
+    "varlock",
+    "dotenv",
+    "env",
+    "environment-variables",
+    "secrets",
+    "executor",
+    "generator"
+  ],
+  "license": "MIT",
+  "author": "Rafa Rocha",
+  "homepage": "https://github.com/rafarochas91/nx-plugins/tree/main/packages/nx-varlock",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafarochas91/nx-plugins.git",
+    "directory": "packages/nx-varlock"
+  },
+  "bugs": {
+    "url": "https://github.com/rafarochas91/nx-plugins/issues"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@nx/devkit": "^23.0.0",
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "nx": ">=21.0.0"
+  },
+  "generators": "./generators.json",
+  "executors": "./executors.json"
+}

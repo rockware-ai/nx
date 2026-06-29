@@ -1,0 +1,11 @@
+import { it } from '@effect/vitest';
+import { Effect } from 'effect';
+import { expect } from 'vitest';
+import { <%= className %>Live, greet } from './<%= projectName %>';
+
+it.effect('greets by name', () =>
+  Effect.gen(function* () {
+    const message = yield* greet('Effect');
+    expect(message).toBe('Hello, Effect!');
+  }).pipe(Effect.provide(<%= className %>Live)),
+);

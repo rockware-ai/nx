@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "executors": {
+    "run": {
+      "implementation": "./src/executors/run/executor",
+      "schema": "./src/executors/run/schema.json",
+      "description": "Run a command with environment variables validated and injected by `varlock run`."
+    },
+    "scan": {
+      "implementation": "./src/executors/scan/executor",
+      "schema": "./src/executors/scan/schema.json",
+      "description": "Scan for plaintext secrets with `varlock scan`."
+    }
+  }
+}

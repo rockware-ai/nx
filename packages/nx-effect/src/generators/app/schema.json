@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "NxEffectApp",
+  "title": "Create an Effect application",
+  "description": "Generates a runnable Node application with an Effect entrypoint (NodeRuntime.runMain) and the @effect/platform packages.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Application name.",
+      "$default": { "$source": "argv", "index": 0 },
+      "x-prompt": "What name would you like to use for the application?",
+      "pattern": "^[a-zA-Z][^:]*$"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the app is placed, relative to the workspace root."
+    },
+    "tags": {
+      "type": "string",
+      "description": "Comma-separated tags applied to the project."
+    },
+    "skipFormat": {
+      "type": "boolean",
+      "description": "Skip formatting files after generation.",
+      "default": false
+    }
+  },
+  "required": ["name"]
+}

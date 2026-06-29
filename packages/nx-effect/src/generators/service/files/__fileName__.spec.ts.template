@@ -1,0 +1,11 @@
+import { it } from '@effect/vitest';
+import { Effect } from 'effect';
+import { expect } from 'vitest';
+import { <%= className %>, <%= className %>Live } from './<%= fileName %>';
+
+it.effect('<%= propertyName %> responds to ping', () =>
+  Effect.gen(function* () {
+    const service = yield* <%= className %>;
+    expect(yield* service.ping()).toBe('pong');
+  }).pipe(Effect.provide(<%= className %>Live)),
+);

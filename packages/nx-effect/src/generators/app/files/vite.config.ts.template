@@ -1,0 +1,20 @@
+/// <reference types='vitest' />
+import { defineConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
+
+export default defineConfig({
+  root: __dirname,
+  cacheDir: '<%= offsetFromRoot %>node_modules/.vite/<%= projectName %>',
+  plugins: [tsconfigPaths()],
+  test: {
+    watch: false,
+    globals: true,
+    environment: 'node',
+    include: ['src/**/*.{test,spec}.ts'],
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: '<%= offsetFromRoot %>coverage/<%= projectName %>',
+      provider: 'v8',
+    },
+  },
+});

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "NxVarlockInit",
+  "title": "Add Varlock to a project",
+  "description": "Adds a .env.schema, installs varlock, registers a `validate` target and updates .gitignore.",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The project to set up varlock for. Defaults to the workspace root when omitted.",
+      "$default": { "$source": "projectName" },
+      "x-prompt": "Which project should varlock be added to?"
+    },
+    "skipSchema": {
+      "type": "boolean",
+      "description": "Do not create a .env.schema file.",
+      "default": false
+    },
+    "skipTarget": {
+      "type": "boolean",
+      "description": "Do not register a `validate` target on the project.",
+      "default": false
+    },
+    "skipPackageJson": {
+      "type": "boolean",
+      "description": "Do not add varlock to devDependencies.",
+      "default": false
+    },
+    "skipFormat": {
+      "type": "boolean",
+      "description": "Skip formatting files after generation.",
+      "default": false
+    }
+  },
+  "required": []
+}

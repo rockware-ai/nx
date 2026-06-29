@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "Varlock run executor",
+  "description": "Runs a command with environment variables validated and injected by `varlock run`.",
+  "type": "object",
+  "properties": {
+    "command": {
+      "type": "string",
+      "description": "The command to execute with injected env vars (e.g. \"node dist/main.js\"). Either `command` or `commands` is required."
+    },
+    "commands": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Multiple commands to run sequentially, each wrapped by varlock."
+    },
+    "env": {
+      "type": "string",
+      "description": "Environment context passed to varlock as --env."
+    },
+    "path": {
+      "type": "string",
+      "description": "Custom .env schema entry point, passed to varlock as --path."
+    },
+    "inject": {
+      "type": "string",
+      "enum": ["all", "vars", "blob"],
+      "description": "Injection mode passed to varlock as --inject."
+    },
+    "redactStdout": {
+      "type": "boolean",
+      "description": "Force redaction of sensitive values in stdout (maps to --redact-stdout / --no-redact-stdout)."
+    },
+    "includeInternal": {
+      "type": "boolean",
+      "description": "Pass @internal items through to the child process (--include-internal)."
+    },
+    "skipCache": {
+      "type": "boolean",
+      "description": "Bypass the encrypted disk cache (--skip-cache)."
+    }
+  },
+  "oneOf": [{ "required": ["command"] }, { "required": ["commands"] }]
+}

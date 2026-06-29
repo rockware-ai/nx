@@ -1,0 +1,25 @@
+# <%= projectName %>
+
+A runnable [Effect](https://effect.website) application generated with `@rafarochas91/nx-effect`.
+
+## Develop
+
+```sh
+nx serve <%= projectName %>
+```
+
+## Build
+
+```sh
+nx build <%= projectName %>
+```
+
+## Test
+
+```sh
+nx test <%= projectName %>
+```
+
+The entrypoint lives in `src/main.ts` and runs the program via
+`NodeRuntime.runMain`. Keep your composable logic in `src/app.ts` so it stays
+easy to test.

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "NxEffectInit",
+  "title": "Add Effect to the workspace",
+  "description": "Installs Effect (and optional platform packages) and ensures the workspace is ready to build Effect-based projects.",
+  "type": "object",
+  "properties": {
+    "platform": {
+      "type": "boolean",
+      "description": "Also install @effect/platform and @effect/platform-node.",
+      "default": false
+    },
+    "skipFormat": {
+      "type": "boolean",
+      "description": "Skip formatting files after generation.",
+      "default": false
+    },
+    "skipPackageJson": {
+      "type": "boolean",
+      "description": "Do not add dependencies to package.json.",
+      "default": false
+    }
+  },
+  "required": []
+}

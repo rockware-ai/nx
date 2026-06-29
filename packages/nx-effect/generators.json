@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "name": "nx-effect",
+  "version": "0.0.1",
+  "generators": {
+    "init": {
+      "factory": "./src/generators/init/generator",
+      "schema": "./src/generators/init/schema.json",
+      "description": "Install Effect (and optionally @effect/platform) into the workspace."
+    },
+    "library": {
+      "factory": "./src/generators/library/generator",
+      "schema": "./src/generators/library/schema.json",
+      "description": "Generate an Effect library with Vitest and a sample service + layer.",
+      "aliases": ["lib"]
+    },
+    "service": {
+      "factory": "./src/generators/service/generator",
+      "schema": "./src/generators/service/schema.json",
+      "description": "Generate an Effect Context.Tag service with a live Layer in an existing project."
+    },
+    "app": {
+      "factory": "./src/generators/app/generator",
+      "schema": "./src/generators/app/schema.json",
+      "description": "Generate a runnable Effect application with a NodeRuntime entrypoint.",
+      "aliases": ["application"]
+    }
+  }
+}
