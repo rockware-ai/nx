@@ -64,6 +64,7 @@
       "pattern": "{projectName}@{version}"
     },
     "version": {
+      "conventionalCommits": true,
       "preVersionCommand": "pnpm dlx nx run-many -t build --projects=nx-effect,nx-varlock",
       "fallbackCurrentVersionResolver": "disk"
     },
