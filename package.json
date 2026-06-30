@@ -8,18 +8,22 @@
     "lint": "nx run-many -t lint --projects=nx-effect,nx-varlock",
     "check": "nx run-many -t lint test build --projects=nx-effect,nx-varlock",
     "release": "nx release",
-    "release:publish": "nx release publish"
+    "release:publish": "nx release publish",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
     "@nx/devkit": "23.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.1.0",
+    "@commitlint/config-conventional": "^21.1.0",
     "@eslint/js": "^9.8.0",
     "@nx/eslint": "23.0.1",
     "@nx/eslint-plugin": "23.0.1",
     "@nx/jest": "23.0.1",
     "@nx/js": "23.0.1",
+    "@nx/plugin": "23.0.1",
     "@nx/workspace": "23.0.1",
     "@swc-node/register": "~1.11.1",
     "@swc/cli": "~0.8.0",
@@ -29,6 +33,7 @@
     "@types/node": "^22.0.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
+    "husky": "^9.1.7",
     "jest": "~30.3.0",
     "jest-environment-jsdom": "~30.3.0",
     "jest-environment-node": "~30.3.0",
@@ -41,8 +46,7 @@
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.40.0",
-    "verdaccio": "^6.3.2",
-    "@nx/plugin": "23.0.1"
+    "verdaccio": "^6.3.2"
   },
   "nx": {
     "includedScripts": []
