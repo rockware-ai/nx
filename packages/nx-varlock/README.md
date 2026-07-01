@@ -1,4 +1,4 @@
-# @rafarochas91/nx-varlock
+# @rockware-ai/nx-varlock
 
 An [Nx](https://nx.dev) plugin for [Varlock](https://varlock.dev) — AI-safe
 environment variable management. It validates and injects env vars from your
@@ -8,9 +8,9 @@ every project that has a `.env.schema`.
 ## Install
 
 ```sh
-npm install --save-dev @rafarochas91/nx-varlock
+npm install --save-dev @rockware-ai/nx-varlock
 # or
-nx add @rafarochas91/nx-varlock
+nx add @rockware-ai/nx-varlock
 ```
 
 `varlock` itself is added to your `devDependencies` by the `init` generator.
@@ -23,7 +23,7 @@ Scaffold a `.env.schema`, install `varlock`, register a `validate` target on the
 project and add encrypted-override entries to `.gitignore`.
 
 ```sh
-nx g @rafarochas91/nx-varlock:init --project my-app
+nx g @rockware-ai/nx-varlock:init --project my-app
 ```
 
 | Option            | Type      | Default | Description                                     |
@@ -46,7 +46,7 @@ Run a command with environment variables validated and injected by
 {
   "targets": {
     "serve": {
-      "executor": "@rafarochas91/nx-varlock:run",
+      "executor": "@rockware-ai/nx-varlock:run",
       "options": {
         "command": "node dist/main.js",
         "env": "production"
@@ -76,7 +76,7 @@ for CI and pre-commit hooks.
 {
   "targets": {
     "scan-secrets": {
-      "executor": "@rafarochas91/nx-varlock:scan",
+      "executor": "@rockware-ai/nx-varlock:scan",
       "options": { "staged": true }
     }
   }
@@ -101,7 +101,7 @@ edits required.
 {
   "plugins": [
     {
-      "plugin": "@rafarochas91/nx-varlock",
+      "plugin": "@rockware-ai/nx-varlock",
       "options": {
         "validateTargetName": "validate",
         "scanTargetName": "scan-secrets"

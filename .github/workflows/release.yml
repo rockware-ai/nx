@@ -1,6 +1,8 @@
-name: Release
+name: release
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
     inputs:
       specifier:
@@ -8,12 +10,19 @@ on:
         required: false
         default: ''
 
+# Never run two releases concurrently; let an in-flight release finish.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 permissions:
   contents: write
   id-token: write
 
 jobs:
   release:
+    # Skip the release commit Nx pushes back to main, otherwise we loop forever.
+    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'chore(release)') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,10 +44,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Version and changelog
+      # Conventional commits drive per-project bumps; unchanged packages are skipped.
+      # A manual dispatch may override with an explicit specifier.
+      - name: Version, changelog and tag (changed packages only)
         run: pnpm exec nx release ${{ github.event.inputs.specifier }} --yes
 
-      - name: Publish to npm
+      - name: Publish changed packages to npm
         run: pnpm exec nx release publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

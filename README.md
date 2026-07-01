@@ -4,39 +4,39 @@ A monorepo of [Nx](https://nx.dev) plugins, built and released with Nx itself.
 
 | Package                                             | Description                                                                                  |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| [`@rafarochas91/nx-effect`](./packages/nx-effect)   | Generators for [Effect](https://effect.website) libraries, services/layers and apps.         |
-| [`@rafarochas91/nx-varlock`](./packages/nx-varlock) | Generator, executors and inferred targets for [Varlock](https://varlock.dev) env management. |
+| [`@rockware-ai/nx-effect`](./packages/nx-effect)   | Generators for [Effect](https://effect.website) libraries, services/layers and apps.         |
+| [`@rockware-ai/nx-varlock`](./packages/nx-varlock) | Generator, executors and inferred targets for [Varlock](https://varlock.dev) env management. |
 
 ## Using the plugins
 
-Both packages publish under the `@rafarochas91` scope on npm. Add them to an
+Both packages publish under the `@rockware-ai` scope on npm. Add them to an
 existing Nx workspace with `nx add` (recommended — runs the `init` generator and
 updates `nx.json`) or install them manually with your package manager.
 
-### `@rafarochas91/nx-effect`
+### `@rockware-ai/nx-effect`
 
 Scaffolds Effect libraries, services/layers and runnable Node apps wired up
 with `@effect/vitest`.
 
 ```sh
 # Install + run the init generator
-nx add @rafarochas91/nx-effect
+nx add @rockware-ai/nx-effect
 
 # Generate a library with a sample Context.Tag service + live Layer
-nx g @rafarochas91/nx-effect:library my-lib
+nx g @rockware-ai/nx-effect:library my-lib
 
 # Add another service into an existing project
-nx g @rafarochas91/nx-effect:service UserRepository --project my-lib
+nx g @rockware-ai/nx-effect:service UserRepository --project my-lib
 
 # Generate a runnable app (entrypoint at src/main.ts via NodeRuntime.runMain)
-nx g @rafarochas91/nx-effect:app my-app
+nx g @rockware-ai/nx-effect:app my-app
 nx serve my-app
 ```
 
 See [packages/nx-effect/README.md](./packages/nx-effect/README.md) for the full
 list of generators and options.
 
-### `@rafarochas91/nx-varlock`
+### `@rockware-ai/nx-varlock`
 
 Validates, injects and scans environment variables using
 [Varlock](https://varlock.dev). Ships an `init` generator, `run` / `scan`
@@ -44,8 +44,8 @@ executors, and inferred targets via `createNodesV2`.
 
 ```sh
 # Install + scaffold a .env.schema, register a `validate` target
-nx add @rafarochas91/nx-varlock
-nx g @rafarochas91/nx-varlock:init --project my-app
+nx add @rockware-ai/nx-varlock
+nx g @rockware-ai/nx-varlock:init --project my-app
 
 # Validate the schema
 nx validate my-app
@@ -62,7 +62,7 @@ inferred automatically for every project that has a `.env.schema`:
 {
   "plugins": [
     {
-      "plugin": "@rafarochas91/nx-varlock",
+      "plugin": "@rockware-ai/nx-varlock",
       "options": {
         "validateTargetName": "validate",
         "scanTargetName": "scan-secrets"
@@ -79,7 +79,7 @@ Use the `run` executor to wrap any command with `varlock run --`:
 {
   "targets": {
     "serve": {
-      "executor": "@rafarochas91/nx-varlock:run",
+      "executor": "@rockware-ai/nx-varlock:run",
       "options": {
         "command": "node dist/main.js",
         "env": "production"
@@ -114,8 +114,8 @@ Husky installs git hooks on `pnpm install`:
 
 ```
 packages/
-  nx-effect/    # @rafarochas91/nx-effect
-  nx-varlock/   # @rafarochas91/nx-varlock
+  nx-effect/    # @rockware-ai/nx-effect
+  nx-varlock/   # @rockware-ai/nx-varlock
 ```
 
 ### Day-to-day commands
@@ -135,7 +135,7 @@ nx run-many -t lint test build
 nx affected -t lint test build
 
 # Try a generator without writing to disk
-nx g @rafarochas91/nx-effect:library demo --dry-run
+nx g @rockware-ai/nx-effect:library demo --dry-run
 ```
 
 ### Working on a generator or executor
@@ -193,7 +193,7 @@ nx release
 nx release publish
 ```
 
-Both packages publish under the `@rafarochas91` scope with public access.
+Both packages publish under the `@rockware-ai` scope with public access.
 
 ## License
 

@@ -1,4 +1,4 @@
-# @rafarochas91/nx-effect
+# @rockware-ai/nx-effect
 
 An [Nx](https://nx.dev) plugin for [Effect](https://effect.website). It provides
 generators for scaffolding Effect libraries, services/layers and runnable
@@ -8,9 +8,9 @@ applications, all wired up with [Vitest](https://vitest.dev) via
 ## Install
 
 ```sh
-npm install --save-dev @rafarochas91/nx-effect
+npm install --save-dev @rockware-ai/nx-effect
 # or
-nx add @rafarochas91/nx-effect
+nx add @rockware-ai/nx-effect
 ```
 
 ## Generators
@@ -20,8 +20,8 @@ nx add @rafarochas91/nx-effect
 Install Effect into the workspace.
 
 ```sh
-nx g @rafarochas91/nx-effect:init
-nx g @rafarochas91/nx-effect:init --platform   # also add @effect/platform(+node)
+nx g @rockware-ai/nx-effect:init
+nx g @rockware-ai/nx-effect:init --platform   # also add @effect/platform(+node)
 ```
 
 | Option            | Type      | Default | Description                             |
@@ -36,8 +36,8 @@ Generate an Effect library with a sample `Context.Tag` service, a live `Layer`,
 an accessor and an `@effect/vitest` test.
 
 ```sh
-nx g @rafarochas91/nx-effect:library my-lib
-nx g @rafarochas91/nx-effect:library my-lib --directory libs/domain/my-lib --tags scope:shared
+nx g @rockware-ai/nx-effect:library my-lib
+nx g @rockware-ai/nx-effect:library my-lib --directory libs/domain/my-lib --tags scope:shared
 ```
 
 | Option       | Type      | Description                               |
@@ -53,7 +53,7 @@ nx g @rafarochas91/nx-effect:library my-lib --directory libs/domain/my-lib --tag
 Add an Effect `Context.Tag` service with a live `Layer` to an existing project.
 
 ```sh
-nx g @rafarochas91/nx-effect:service UserRepository --project my-lib
+nx g @rockware-ai/nx-effect:service UserRepository --project my-lib
 ```
 
 | Option       | Type      | Description                                            |
@@ -70,7 +70,7 @@ Generate a runnable Node application with an Effect entrypoint using
 `src/main.ts`.
 
 ```sh
-nx g @rafarochas91/nx-effect:app my-app
+nx g @rockware-ai/nx-effect:app my-app
 nx serve my-app   # runs via tsx --watch
 ```
 

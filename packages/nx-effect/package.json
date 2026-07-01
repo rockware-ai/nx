@@ -1,5 +1,5 @@
 {
-  "name": "@rafarochas91/nx-effect",
+  "name": "@rockware-ai/nx-effect",
   "version": "0.0.1",
   "description": "Nx plugin for Effect — generators for Effect libraries, services, layers and runnable applications.",
   "keywords": [
@@ -14,14 +14,14 @@
   ],
   "license": "MIT",
   "author": "Rafa Rocha",
-  "homepage": "https://github.com/rafarochas91/nx-plugins/tree/main/packages/nx-effect",
+  "homepage": "https://github.com/rockware-ai/nx-plugins/tree/main/packages/nx-effect",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafarochas91/nx-plugins.git",
+    "url": "git+https://github.com/rockware-ai/nx-plugins.git",
     "directory": "packages/nx-effect"
   },
   "bugs": {
-    "url": "https://github.com/rafarochas91/nx-plugins/issues"
+    "url": "https://github.com/rockware-ai/nx-plugins/issues"
   },
   "type": "commonjs",
   "main": "./src/index.js",

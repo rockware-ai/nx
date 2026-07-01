@@ -14,8 +14,8 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@rafarochas91/nx-effect": ["./packages/nx-effect/src/index.ts"],
-      "@rafarochas91/nx-varlock": ["./packages/nx-varlock/src/index.ts"]
+      "@rockware-ai/nx-effect": ["./packages/nx-effect/src/index.ts"],
+      "@rockware-ai/nx-varlock": ["./packages/nx-varlock/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
